@@ -1,0 +1,7 @@
+{
+  "name": "sentinel-osint-alert-check",
+  "version": "1.0.0",
+  "description": "Heuristic QA for OSINT alert pipelines: geolocation, source verification, review hints, duplicates and payload size",
+  "scripts": { "test": "node --test" },
+  "license": "MIT"
+}
