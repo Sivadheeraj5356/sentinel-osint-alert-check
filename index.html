@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>OSINT Alert Check</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<main class="wrap">
+  <header>
+    <h1>OSINT Alert Check</h1>
+    <p class="sub">A wrong alert in a conflict zone is worse than no alert. Paste alert payloads, one per line as <code>severity | source | lat,lon | text</code>, and the check flags missing geolocation, unverified sources, high-severity alerts with no review hint, duplicates, and heavy payloads that may strain offline-first clients. Heuristic review, not intel analysis.</p>
+  </header>
+
+  <section class="card">
+    <label class="lbl" for="alerts">Alerts, one per line: <code>severity | source | lat,lon | text</code></label>
+    <textarea id="alerts" rows="8" spellcheck="false">high | verified NGO feed | 13.7563,100.5018 | Checkpoint reported near crossing, confirmed by two field staff
+medium | anonymous tip | none | Armed group seen near market
+high | unverified telegram channel | 16.8409,96.1735 | Convoy movement reported heading north
+low | verified NGO feed | 13.7563,100.5018 | Checkpoint reported near crossing, confirmed by two field staff</textarea>
+
+    <button id="run" type="button">Run alert check</button>
+  </section>
+
+  <section id="results" class="hidden">
+    <div class="card">
+      <h2>Findings <span id="stats" class="stats"></span></h2>
+      <ul id="findings" class="findings"></ul>
+    </div>
+  </section>
+
+  <footer>Plain HTML, CSS and JavaScript. No external services, build step or secrets. Tests: <code>npm test</code>.</footer>
+</main>
+<script src="alerts.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
